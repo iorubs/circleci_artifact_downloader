@@ -10,7 +10,7 @@ The Rundeck downloader script, should be similar to the one required for other j
 2 - For the last successful build, supply 'latest' for $BUILD, other wise supply a build number.  
 
 #### RunDeck:  
-You must create the following variables before executing the job: ORGANIZATION, REPO, BRANCH and CIRCLE_API_TOKEN. Then add a new step to your execution job, select inline script and copy paste the contents of rundeck_download.py.  
+You must create the following variables before executing the job: ORGANIZATION, REPO, BRANCH, CIRCLE_API_TOKEN and BUILD. Then add a new step to your execution job, select inline script and copy paste the contents of rundeck_download.py.  
 
 ### TODO list:  
 1 - Change param parser for something like argparse.  
