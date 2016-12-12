@@ -3,9 +3,9 @@ import sys
 import commands
 import ast
 
-def list_build_artifacts(organization, repo, branch, api_token):
+def list_build_artifacts(organization, repo, branch, api_token, build):
     list_url = '"https://circleci.com/api/v1/project/' + organization + '/' \
-             + repo + '/latest/artifacts?circle-token=' + api_token \
+             + repo + '/' + build + '/artifacts?circle-token=' + api_token \
              + '&branch=' + branch + '&filter=successful"'
     req = commands.getstatusoutput('curl -s ' + list_url)
 
@@ -28,8 +28,8 @@ def dowload_artifacts(artifacts, api_token):
     print '[DONE]'
 
 def main():
-    artifacts = list_build_artifacts(@option.ORGANIZATION@, @option.REPO@, @option.BRANCH@, @option.CIRCLE_API_TOKEN@)
-    
+    artifacts = list_build_artifacts(@option.ORGANIZATION@, @option.REPO@, @option.BRANCH@, @option.CIRCLE_API_TOKEN@, @option.BUILD@)
+
     if len(artifacts) == 0:
         print '[WARNING]   -   Build without artifacts.'
     else:
